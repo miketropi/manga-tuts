@@ -1,49 +1,83 @@
 # System Patterns
 
-## Architecture Overview
-1. Frontend Architecture
-   - Single Page Application (SPA)
-   - Client-side rendering
-   - Component-based structure
+## Architecture
+1. **Component Structure**
+   - Functional components with hooks
+   - Error boundaries for error handling
+   - OptimizedImage for image loading
+   - Theme-aware components
 
-2. State Management
-   - Zustand for global state
-   - Immer for immutable state updates
-   - Local storage integration
+2. **State Management**
+   - Centralized state with Zustand
+   - Separate stores for different concerns
+   - Persisted state for user preferences
+   - Cache state for performance optimization
 
-3. API Integration
-   - Jikan API v4 endpoints
-   - RESTful API consumption
-   - Error handling patterns
+3. **Data Flow**
+   - Unidirectional data flow
+   - Centralized API calls
+   - Cached responses
+   - Debounced search
 
 ## Design Patterns
-1. Component Structure
-   - Atomic design principles
-   - Reusable UI components
+1. **Component Patterns**
    - Container/Presenter pattern
+   - Higher-Order Components
+   - Error Boundary pattern
+   - Optimized Image pattern
 
-2. Data Flow
-   - Unidirectional data flow
-   - Centralized state management
-   - Local storage synchronization
+2. **State Patterns**
+   - Store pattern with Zustand
+   - Cache pattern with Map
+   - Persistence pattern
+   - Debounce pattern
 
-3. Routing
-   - Dynamic routing for detail pages
-   - Protected routes for wishlist
-   - URL-based state management
+3. **API Patterns**
+   - Centralized API calls
+   - Cached responses
+   - Error handling
+   - Rate limiting
 
-## Critical Implementation Paths
-1. Search Implementation
-   - Debounced search input
-   - API request optimization
-   - Result caching strategy
+## Key Implementation Paths
+1. **Search Flow**
+   - User input → Debounced search → Cache check → API call → Cache update → UI update
 
-2. Filter System
-   - Composable filter logic
-   - URL-based filter state
-   - Filter combination handling
+2. **Detail Flow**
+   - Route change → Cache check → API call → Cache update → UI update
 
-3. Wishlist Management
-   - Local storage operations
-   - State synchronization
-   - Duplicate prevention 
+3. **Theme Flow**
+   - Theme toggle → Store update → Persistence → UI update
+
+4. **Cache Flow**
+   - Data request → Cache check → Cache hit/miss → API call → Cache update → UI update
+
+## Component Relationships
+1. **Core Components**
+   - App → Router → Pages
+   - Pages → Components
+   - Components → Store
+   - Store → Cache
+
+2. **Data Flow**
+   - API → Store → Cache → Components
+   - User Input → Components → Store → API
+   - Theme → Store → Components
+
+## Critical Implementation Details
+1. **Cache Implementation**
+   - Map-based storage
+   - 5-minute cache duration
+   - Separate caches for search and details
+   - Timestamp-based invalidation
+
+2. **State Management**
+   - Zustand stores
+   - Persisted preferences
+   - Cache state
+   - Loading states
+
+3. **Error Handling**
+   - Error boundaries
+   - API error handling
+   - Cache error handling
+   - User feedback 

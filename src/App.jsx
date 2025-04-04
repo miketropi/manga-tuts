@@ -1,22 +1,52 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Toaster } from 'react-hot-toast'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Wishlist from './pages/Wishlist'
+import Search from './pages/Search'
+import Detail from './pages/Detail'
+import useThemeStore from './stores/useThemeStore'
+import ErrorBoundary from './components/ErrorBoundary'
 import './App.css'
 
-function App() {
+const App = () => {
+  const isDarkMode = useThemeStore((state) => state.isDarkMode)
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, [isDarkMode])
+
   return (
-    <Router>
-      <div className="min-h-screen bg-gray-100">
-        <Routes>
-          <Route path="/" element={
-            <div className="container mx-auto px-4 py-8">
-              <h1 className="text-3xl font-bold text-center mb-8">Welcome to Manga Tuts</h1>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Your content here */}
-              </div>
-            </div>
-          } />
-        </Routes>
-      </div>
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <div className="font-mono min-h-screen bg-gray-50 dark:bg-gray-900">
+          <Navbar />
+          <main className="">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/anime/:id" element={<Detail />} />
+            </Routes>
+          </main>
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              className: 'dark:bg-gray-800 dark:text-white',
+              style: {
+                background: isDarkMode ? '#1f2937' : '#ffffff',
+                color: isDarkMode ? '#ffffff' : '#000000',
+              },
+            }}
+          />
+        </div>
+      </Router>
+    </ErrorBoundary>
   )
 }
 
