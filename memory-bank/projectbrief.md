@@ -1,29 +1,21 @@
-# Project Brief: Anime/Manga Management Web App
+# Anime/Manga Management Web App
 
 ## Project Overview
-A web application for managing and exploring anime and manga content using the Jikan API (MyAnimeList public API).
+A modern web application for managing and tracking anime/manga collections, built with React, Vite, and Tailwind CSS.
 
 ## Core Requirements
-1. Search & Display
-   - Search functionality for anime/manga
-   - Grid/list view of results
-   - Pagination/infinite scroll support
+- Search and browse anime/manga using the Jikan API
+- Add/remove items to/from wishlist
+- View detailed information about anime/manga
+- Persistent storage for wishlist items
+- Responsive design for all screen sizes
 
-2. Filter System
-   - Filter by type (TV, Movie, OVA, Manga)
-   - Filter by status (Airing/Completed)
-   - Filter by genre
-   - Filter by rating
-
-3. Wishlist Feature
-   - Add/remove items to wishlist
-   - Dedicated wishlist page
-   - Local storage implementation
-
-4. Detail Page
-   - Comprehensive item information
-   - Responsive design
-   - Mobile-friendly interface
+## Goals
+- Create a user-friendly interface for anime/manga enthusiasts
+- Provide efficient search and filtering capabilities
+- Implement smooth state management with Zustand
+- Ensure a seamless user experience across devices
+- Maintain clean and maintainable code structure
 
 ## Technical Stack
 - Frontend: Vite React JavaScript

@@ -4,8 +4,16 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      aspectRatio: {
+        '2/3': '2 / 3',
+      },
+      fontFamily: {
+        mono: ['Space Mono', 'monospace'],
+      },
+    },
   },
   plugins: [],
 } 
