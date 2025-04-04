@@ -4,9 +4,9 @@ A modern web application for discovering and managing anime and manga using the 
 
 ## Demo
 
-![Home Page](1.jpeg)
-![Search Page](2.jpeg)
-![Anime Details](3.jpeg)
+![Home Page](https://github.com/miketropi/manga-tuts/blob/develop/images/1.jpeg?raw=true)
+![Search Page](https://github.com/miketropi/manga-tuts/blob/develop/images/2.jpeg?raw=true)
+![Anime Details](https://github.com/miketropi/manga-tuts/blob/develop/images/3.jpeg?raw=true)
 
 ## Features
 
